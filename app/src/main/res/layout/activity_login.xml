@@ -89,12 +89,12 @@
         android:layout_marginBottom="32dp"
         android:text="¿Aún no se ha registrado?"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2" />
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
+        app:layout_constraintEnd_toEndOf="@+id/btnRegistrarse"
+        app:layout_constraintStart_toStartOf="@+id/btnRegistrarse" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnRegistrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
