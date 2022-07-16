@@ -37,23 +37,26 @@ class RegisterActivity: AppCompatActivity() {
         mButRegresar = findViewById(R.id.butRegresarRegistro)
         mButRegistrar = findViewById(R.id.butConfirmarRegistro)
 
-        var cont = 0
 
         mButRegistrar.setOnClickListener {
-            GlobalScope.launch(Dispatchers.Main) {
-                val gestor = GestorUsuarios.getInstance()
-                val usuario : Usuario = Usuario(cont, mEteUsername.text.toString(), mEteNombres.text.toString(), mEtePassword.text.toString(),
-                    mEteApellidos.text.toString(), Integer.parseInt(mEteEdad.text.toString()), Integer.parseInt(mEteCodigo.text.toString()))
-                gestor.guardarUsuarioFirebase(usuario, {
-                    Toast.makeText(applicationContext, "Usuario Registrado Correctamente", Toast.LENGTH_SHORT)
-                    val intent = Intent(applicationContext, LoginActivity::class.java)
-                    startActivity(intent)
-                    cont ++
-                }){
-                    Toast.makeText(applicationContext, "${it}", Toast.LENGTH_SHORT)
+            if(mEtePassword.text.toString() == mEteRepPassword.text.toString()){
+                GlobalScope.launch(Dispatchers.Main) {
+                    val gestor = GestorUsuarios.getInstance()
+                    val usuario : Usuario = Usuario(mEteUsername.text.toString(), mEteNombres.text.toString(), mEtePassword.text.toString(),
+                        mEteApellidos.text.toString(), Integer.parseInt(mEteEdad.text.toString()), Integer.parseInt(mEteCodigo.text.toString()))
+                    gestor.guardarUsuarioFirebase(usuario, {
+                        Toast.makeText(applicationContext, "Usuario Registrado Correctamente", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(applicationContext, LoginActivity::class.java)
+                        startActivity(intent)
+
+                    }){
+                        Toast.makeText(applicationContext, "${it}", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
-
+            else{
+                Toast.makeText(this, "Contraseñas no compatibles", Toast.LENGTH_SHORT)
+            }
         }
     }
 }

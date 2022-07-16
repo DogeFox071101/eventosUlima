@@ -1,7 +1,6 @@
 package pe.com.grupo3.eventosulima.models.beans
 
 data class Usuario (
-    val id : Int,
     val username : String,
     val nombres : String,
     val password : String,

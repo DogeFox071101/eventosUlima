@@ -27,7 +27,6 @@ class GestorUsuarios {
             .addOnSuccessListener {
                 if(it!!.documents.size > 0){
                     val usuario = Usuario(
-                        Integer.parseInt(it.documents[0]["id"].toString()),
                         it.documents[0]["username"].toString(),
                         it.documents[0]["nombres"].toString(),
                         it.documents[0]["password"].toString(),
