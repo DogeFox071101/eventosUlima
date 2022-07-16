@@ -27,10 +27,12 @@ class LoginActivity: AppCompatActivity() {
         val sp = getSharedPreferences(
             Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
 
-        val estaSincronizado = sp.getBoolean(Constantes.SP_ESTA_LOGEADO,
+        val estaLogeado = sp.getBoolean(Constantes.SP_ESTA_LOGEADO,
             false)
 
-        if(estaSincronizado) {
+        val nombreUsuario = sp.getString(Constantes.USERNAME, "")
+
+        if(estaLogeado) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -51,6 +53,9 @@ class LoginActivity: AppCompatActivity() {
                 }else{
                     sp.edit().putBoolean(
                         Constantes.SP_ESTA_LOGEADO, true).commit()
+                    sp.edit().putString(
+                        Constantes.USERNAME, eteUsernameLogin.text.toString()
+                    ).commit()
                    startActivity(Intent(this, MainActivity::class.java))
                    finish()
                 }

@@ -52,4 +52,16 @@ class GestorUsuarios {
             error(it.message.toString())
         }
     }
+
+    fun obtenerUsername(usuario : Usuario, success : () -> Unit, error: (String) -> Unit) {
+        val usuariosCol = dbFirebase.collection("Usuarios")
+
+        dbFirebase.runTransaction {
+            it.set(usuariosCol.document(), usuario)
+        }.addOnSuccessListener {
+            success()
+        }.addOnFailureListener {
+            error(it.message.toString())
+        }
+    }
 }

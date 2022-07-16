@@ -6,14 +6,16 @@
     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/mDlaMain"
     android:background="@color/cafe_main"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="InvalidId">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <!--
+
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -23,7 +25,7 @@
             app:titleTextColor="@color/white">
 
         </androidx.appcompat.widget.Toolbar>
-        -->
+
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fcvEleccion"
@@ -49,7 +51,8 @@
         android:layout_height="match_parent"
         app:menu="@menu/menu_navigation"
         android:fitsSystemWindows="true"
-        android:layout_gravity="start">
+        android:layout_gravity="start"
+        app:headerLayout="@layout/drawer_header">
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

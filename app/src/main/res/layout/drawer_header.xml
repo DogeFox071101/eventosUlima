@@ -18,8 +18,8 @@
         android:textColor="#ffffff"
         android:padding="20dp"
         android:textAlignment="center"
-        android:textSize="30sp"
-        android:text=""
+        android:textSize="24sp"
+        android:text="USUARIO"
         android:textStyle="bold"/>
 
 </LinearLayout>
