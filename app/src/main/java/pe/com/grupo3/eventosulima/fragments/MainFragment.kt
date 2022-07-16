@@ -16,7 +16,7 @@ class MainFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        activity?.title = "INICIO"
     }
 
     override fun onCreateView(

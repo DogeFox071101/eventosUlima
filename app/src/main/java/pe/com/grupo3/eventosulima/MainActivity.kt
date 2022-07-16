@@ -14,6 +14,7 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.material.navigation.NavigationView
 import pe.com.grupo3.eventosulima.fragments.CarteleraFragment
 import pe.com.grupo3.eventosulima.fragments.MainFragment
+import pe.com.grupo3.eventosulima.fragments.NosotrosFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mDlaMain : DrawerLayout
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private val fragmentCartelera = CarteleraFragment()
     private val fragmentMain = MainFragment()
+    private val fragmentNosotros = NosotrosFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +51,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId) {
                 R.id.menInicio -> mostrarFragmentMain(ft)
                 R.id.menCartelera -> mostrarFragmentCartelera(ft)
+                R.id.menSobreNosotros -> mostrarFragmentNosotros(ft)
                 R.id.menCerrarSesion -> cerrarSesion()
             }
             ft.addToBackStack(null)
@@ -69,6 +72,10 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         MobileAds.initialize(this) {}
+    }
+
+    private fun mostrarFragmentNosotros(ft: FragmentTransaction) {
+        ft.replace(R.id.fcvEleccion, fragmentNosotros)
     }
 
     private fun cerrarSesion() {
