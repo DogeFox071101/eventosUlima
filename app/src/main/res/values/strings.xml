@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Eventos Ulima</string>
+    <string name="sala_ventana_indiscreta">SALA VENTANA INDISCRETA</string>
+    <string name="todo">TODO</string>
 </resources>
