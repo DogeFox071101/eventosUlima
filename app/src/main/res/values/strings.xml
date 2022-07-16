@@ -8,4 +8,15 @@
     </string-array>
     <string name="sala_ventana_indiscreta">SALA VENTANA INDISCRETA</string>
     <string name="todo">TODO</string>
+    <string name="bruno_andre_chirinos_molina">Bruno Andre Chirinos Molina</string>
+    <string name="jean_pierre_soto_tipacti">Jean Pierre Soto Tipacti</string>
+    <string name="leonardo_guillermo_falcon_choque">Leonardo Guillermo Falcon Choque</string>
+    <string name="regresar">REGRESAR</string>
+    <string name="todo1">TODO</string>
+    <string name="todo2">TODO</string>
+    <string name="textview">TextView</string>
+    <string name="button">Button</string>
+    <string name="todo3">TODO</string>
+    <string name="todo4">TODO</string>
+    <string name="todo5">TODO</string>
 </resources>
