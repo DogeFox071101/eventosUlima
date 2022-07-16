@@ -18,8 +18,9 @@
             android:exported="false" />
 
         <meta-data
-            android:name="com.google.android.gms.ads.ca-app-pub-3940256099942544/6300978111"
-            android:value="@string/adMobID"></meta-data>
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/adMobID">
+        </meta-data>
 
         <activity
             android:name=".MainActivity"
