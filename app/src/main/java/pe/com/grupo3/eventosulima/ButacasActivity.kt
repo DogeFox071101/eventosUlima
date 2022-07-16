@@ -7,11 +7,11 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
-import pe.com.grupo3.eventosulima.databinding.ActivityButacasBinding
-import pe.com.grupo3.eventosulima.databinding.ActivityMainBinding
+//import pe.com.grupo3.eventosulima.databinding.ActivityButacasBinding
+//import pe.com.grupo3.eventosulima.databinding.ActivityMainBinding
 
 class ButacasActivity: AppCompatActivity(), AdapterView.OnItemClickListener {
-    private lateinit var binding: ActivityButacasBinding
+    /*private lateinit var binding: ActivityButacasBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,7 +29,7 @@ class ButacasActivity: AppCompatActivity(), AdapterView.OnItemClickListener {
             setAdapter(adapter)
             onItemClickListener=this@ButacasActivity
         }
-    }
+    }*/
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         val item=parent?.getItemAtPosition(position) as String

@@ -21,4 +21,27 @@
     <string name="todo5">TODO</string>
     <string name="su_reservaci_n_ha_sido_confirmada">SU RESERVACIÓN HA SIDO CONFIRMADA</string>
     <string name="confirmar">CONFIRMAR</string>
+
+    <string name="adMobID">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="global_padding">20dp</string>
+
+    <string name="main_title">¡Hola Usuario!</string>
+    <string name="main_movies">Películas en Exhibición:</string>
+    <string name="main_events">Otros Eventos en Exhibición:</string>
+
+    <string name="config_user">Usuario</string>
+    <string name="config_close">Cerrar Sesión</string>
+    <string name="config_edit">Editar información personal</string>
+    <string name="config_pass">Cambiar contraseña</string>
+    <string name="config_notif">Configuración de Notificaciones</string>
+    <string name="edit_lastName">Apellidos:</string>
+    <string name="edit_firstName">Nombres:</string>
+    <string name="edit_gender">Sexo:</string>
+    <string name="edit_gender_1">Hombre</string>
+    <string name="edit_gender_2">Mujer</string>
+    <string name="edit_gender_3">Otro</string>
+    <string name="edit_birth">Fecha de Nacimiento:</string>
+    <string name="edit_idStudent">Código de Alumno:</string>
+
 </resources>
