@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "749620984060",
+    "project_id": "eventosulima-2ce95",
+    "storage_bucket": "eventosulima-2ce95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749620984060:android:096e7c9784e966a0b87f79",
+        "android_client_info": {
+          "package_name": "pe.com.grupo3.eventosulima"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749620984060-069te68cq58ltnig3v8kqjpdratvc3i2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZ2n0DrqEhskxlgSyfps0-5VjohotAy2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749620984060-069te68cq58ltnig3v8kqjpdratvc3i2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-7075715908513519~1357326770"
+    }
+  ],
+  "configuration_version": "1"
+}
