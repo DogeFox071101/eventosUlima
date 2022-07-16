@@ -48,12 +48,20 @@
     <string name="pass_newPassword">Nueva Contraseña:</string>
     <string name="pass_conPassword">Confirmar Contraseña:</string>
     <string name="pass_msg_noMatch">Las contraseñas no coinciden</string>
-    
+
     <string name="notif_enable">Activar Notificaciones</string>
     <string name="notif_section">Deseo recibir notificaciones de:</string>
     <string name="notif_concert">Conciertos</string>
     <string name="notif_events">Eventos Académicos</string>
     <string name="notif_movies">Películas</string>
     <string name="notif_theatre">Obras de Teatro</string>
+    
+    <string name="foto_take">Tomar una foto</string>
+    <string name="foto_take_alt">Volver a tomar una foto</string>
+    <string name="foto_file">Cargar una imagen del teléfono</string>
+    <string name="foto_file_alt">Cargar otra imagen del teléfono</string>
+
+    <string name="butGlobal_cancel">Cancelar</string>
+    <string name="butGlobal_continue">Continuar</string>
 
 </resources>
