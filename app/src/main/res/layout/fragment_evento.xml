@@ -198,6 +198,30 @@
                 app:layout_constraintStart_toStartOf="@+id/tviDiaFuncionEvento"
                 app:layout_constraintTop_toBottomOf="@+id/tviDiaFuncionEvento" />
 
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:text="Tipo de Evento:"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tviTipoEvento" />
+
+            <TextView
+                android:id="@+id/tviTipoEvento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="GRATUITO"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tviHorarioFuncionEvento"
+                app:layout_constraintTop_toBottomOf="@+id/tviHorarioFuncionEvento" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
