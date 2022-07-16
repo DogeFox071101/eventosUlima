@@ -40,6 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/eteUsernameLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#26919191" />
@@ -65,6 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etePasswordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#26919191"
@@ -73,7 +75,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/butIngresarLogin"
         android:layout_width="114dp"
         android:layout_height="48dp"
         android:layout_marginTop="48dp"
