@@ -19,4 +19,6 @@
     <string name="todo3">TODO</string>
     <string name="todo4">TODO</string>
     <string name="todo5">TODO</string>
+    <string name="su_reservaci_n_ha_sido_confirmada">SU RESERVACIÓN HA SIDO CONFIRMADA</string>
+    <string name="confirmar">CONFIRMAR</string>
 </resources>
