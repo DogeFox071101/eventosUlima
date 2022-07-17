@@ -3,6 +3,7 @@ package pe.com.grupo3.eventosulima
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -20,16 +21,15 @@ class LoginActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
         btnRegistrarse = findViewById(R.id.btnRegistrarse)
         btnIngresar = findViewById(R.id.butIngresarLogin)
         eteUsernameLogin = findViewById(R.id.eteUsernameLogin)
         etePasswordLogin = findViewById(R.id.etePasswordLogin)
-        val sp = getSharedPreferences(
-            Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
 
-        val estaLogeado = sp.getBoolean(Constantes.SP_ESTA_LOGEADO,
-            false)
-
+        val sp = getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
+        val spEdit = sp.edit()
+        val estaLogeado = sp.getBoolean(Constantes.SP_ESTA_LOGEADO, false)
         val nombreUsuario = sp.getString(Constantes.USERNAME, "")
 
         if(estaLogeado) {
@@ -48,16 +48,26 @@ class LoginActivity: AppCompatActivity() {
             ) {
                 if(it == null){
                     // Error en login
-                    Toast.makeText(this, "Error Login",
-                    Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Error Login", Toast.LENGTH_SHORT)
+                        .show()
                 }else{
-                    sp.edit().putBoolean(
-                        Constantes.SP_ESTA_LOGEADO, true).commit()
-                    sp.edit().putString(
-                        Constantes.USERNAME, eteUsernameLogin.text.toString()
-                    ).commit()
-                   startActivity(Intent(this, MainActivity::class.java))
-                   finish()
+                    Log.i("Log", it.toString())
+                    spEdit.putBoolean(Constantes.SP_ESTA_LOGEADO, true)
+                    println(it.username+"a")
+                    spEdit.putString(Constantes.USERNAME, it.username)
+                    println(it.username+"b")
+                    spEdit.putString(Constantes.APELLIDOS, it.apellidos)
+                    println(it.username+"c")
+                    spEdit.putString(Constantes.NOMBRES, it.nombres)
+                    println(it.username+"d")
+                    spEdit.putString(Constantes.EDAD, it.edad.toString())
+                    println(it.username+"e")
+                    spEdit.putString(Constantes.CODIGO_ULIMA, it.codigoULima.toString())
+                    println(it.username+"f")
+                    spEdit.apply()
+
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
                 }
             }
         }

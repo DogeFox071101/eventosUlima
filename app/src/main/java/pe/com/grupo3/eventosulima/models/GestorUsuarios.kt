@@ -1,7 +1,10 @@
 package pe.com.grupo3.eventosulima.models
 
+import android.content.Context
+import android.util.Log
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import pe.com.grupo3.eventosulima.Constantes
 import pe.com.grupo3.eventosulima.models.beans.Usuario
 
 class GestorUsuarios {
@@ -54,15 +57,24 @@ class GestorUsuarios {
         }
     }
 
-    fun obtenerUsername(usuario : Usuario, success : () -> Unit, error: (String) -> Unit) {
-        val usuariosCol = dbFirebase.collection("Usuarios")
-
-        dbFirebase.runTransaction {
-            it.set(usuariosCol.document(), usuario)
-        }.addOnSuccessListener {
-            success()
-        }.addOnFailureListener {
-            error(it.message.toString())
-        }
-    }
+/*    fun obtenerNombre(username : String, callback: (List<String>?) -> Unit *//*success : () -> Unit, error: (String) -> Unit*//*) {
+        dbFirebase.collection("Usuarios")
+            .whereEqualTo("username", username)
+            .get()
+            .addOnSuccessListener { documents ->
+                for(document in documents) {
+                    val usuario = listOf(
+                        document.data["username"] as String,
+                        document.data["nombres"] as String,
+                        document.data["password"] as String,
+                        document.data["apellidos"] as String,
+                        (document.data["edad"] as Int).toString(),
+                        (document.data["codigoUlima"] as Int).toString())
+                    callback(usuario)
+                }
+            }
+            .addOnFailureListener {
+                error(it.message.toString())
+            }
+    }*/
 }

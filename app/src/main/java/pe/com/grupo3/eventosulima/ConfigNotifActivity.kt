@@ -6,11 +6,16 @@ import androidx.appcompat.widget.Toolbar
 
 class ConfigNotifActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config_notif)
 
         toolbar = findViewById(R.id.toolbar)
+
         toolbar.title = getString(R.string.notif_title)
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 }

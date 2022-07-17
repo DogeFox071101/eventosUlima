@@ -42,7 +42,8 @@ class MainActivity : AppCompatActivity() {
 
         //setSupportActionBar(mToolbar)
 
-        val nameUser = getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE).getString(Constantes.USERNAME,"")
+        val sp = getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
+        val nameUser = sp.getString(Constantes.USERNAME, "")
         val header : View = mNviMain.getHeaderView(0)
         val eteNombre : TextView = header.findViewById(R.id.eteNombre)
         eteNombre.text = nameUser!!.uppercase()
@@ -93,6 +94,10 @@ class MainActivity : AppCompatActivity() {
         val editor = getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE).edit()
         editor.putBoolean(Constantes.SP_ESTA_LOGEADO, false)
         editor.putString(Constantes.USERNAME, "")
+        editor.putString(Constantes.APELLIDOS, "")
+        editor.putString(Constantes.NOMBRES, "")
+        editor.putString(Constantes.CODIGO_ULIMA, "")
+        editor.putString(Constantes.EDAD, "")
         editor.commit()
         finish()
     }

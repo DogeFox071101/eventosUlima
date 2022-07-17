@@ -6,11 +6,16 @@ import androidx.appcompat.widget.Toolbar
 
 class ConfigPassActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config_pass)
 
         toolbar = findViewById(R.id.toolbar)
+
         toolbar.title = getString(R.string.pass_title)
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 }

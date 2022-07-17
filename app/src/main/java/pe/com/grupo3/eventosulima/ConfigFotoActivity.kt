@@ -6,11 +6,16 @@ import androidx.appcompat.widget.Toolbar
 
 class ConfigFotoActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config_foto)
 
         toolbar = findViewById(R.id.toolbar)
+
         toolbar.title = getString(R.string.foto_title)
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 }
