@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.Dispatchers
@@ -24,6 +25,7 @@ class MainFragment : Fragment() {
 
     private lateinit var mUsername: TextView
     private lateinit var mrviListaPeliculas : RecyclerView
+    private lateinit var toolbar : Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +49,9 @@ class MainFragment : Fragment() {
         mrviListaPeliculas = view.findViewById(R.id.rviListaPeliculas)
         val gestor = GestorPeliculas()
         val sp = requireActivity().getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
+
+        toolbar = requireActivity().findViewById(R.id.toolbar)
+        toolbar.visibility = View.GONE
 
         GlobalScope.launch(Dispatchers.Main) {
             val estaSincronizado = sp.getBoolean(Constantes.SP_ESTA_SINCRONIZADO, false)

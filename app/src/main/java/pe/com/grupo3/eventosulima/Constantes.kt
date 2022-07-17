@@ -6,5 +6,6 @@ class Constantes {
         val SP_ESTA_SINCRONIZADO = "ESTA_SINCRONIZADO"
         val SP_ESTA_LOGEADO = "ESTA_LOGEADO"
         val USERNAME = ""
+        val NOMBRE = ""
     }
 }

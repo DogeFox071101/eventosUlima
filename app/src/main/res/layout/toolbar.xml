@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/cafe_main"
+    app:title="Prueba"
     app:navigationIcon="@drawable/ic_round_arrow_back_24"
-    app:title="Prueba de Title"
     app:titleTextColor="@color/white">
 
 

@@ -36,6 +36,7 @@
     <string name="config_pass">Cambiar contraseña</string>
     <string name="config_notif">Configuración de Notificaciones</string>
 
+    <string name="edit_title">Editar información personal</string>
     <string name="edit_lastName">Apellidos:</string>
     <string name="edit_firstName">Nombres:</string>
     <string name="edit_gender">Sexo:</string>
@@ -45,10 +46,12 @@
     <string name="edit_birth">Fecha de Nacimiento:</string>
     <string name="edit_idStudent">Código de Alumno:</string>
 
+    <string name="pass_title">Cambiar Contraseña</string>
     <string name="pass_newPassword">Nueva Contraseña:</string>
     <string name="pass_conPassword">Confirmar Contraseña:</string>
     <string name="pass_msg_noMatch">Las contraseñas no coinciden</string>
 
+    <string name="notif_title">Configuración de Notificaciones</string>
     <string name="notif_enable">Activar Notificaciones</string>
     <string name="notif_section">Deseo recibir notificaciones de:</string>
     <string name="notif_concert">Conciertos</string>
@@ -56,6 +59,7 @@
     <string name="notif_movies">Películas</string>
     <string name="notif_theatre">Obras de Teatro</string>
     
+    <string name="foto_title">Actualizar Foto</string>
     <string name="foto_take">Tomar una foto</string>
     <string name="foto_take_alt">Volver a tomar una foto</string>
     <string name="foto_file">Cargar una imagen del teléfono</string>
