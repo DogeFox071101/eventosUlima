@@ -3,19 +3,18 @@ package pe.com.grupo3.eventosulima.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import pe.com.grupo3.eventosulima.R
-import pe.com.grupo3.eventosulima.adapters.ListadoPeliculasAdapter.ViewHolder
 import pe.com.grupo3.eventosulima.models.beans.Pelicula
 
 class ListadoPeliculasAdapter(private val mListaPeliculas : List<Pelicula>,
      private val mOnItemClickListener: (pelicula:Pelicula)->Unit) :
-    RecyclerView.Adapter<ListadoPeliculasAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ListadoPeliculasAdapter.ViewHolder>()
+{
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         val tviPeliculaNombre : TextView
         val tviPelicula : ImageView
