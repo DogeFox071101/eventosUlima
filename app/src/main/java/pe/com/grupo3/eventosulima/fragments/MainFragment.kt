@@ -11,10 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import pe.com.grupo3.eventosulima.Constantes
 import pe.com.grupo3.eventosulima.R
 import pe.com.grupo3.eventosulima.adapters.ListadoPeliculasAdapter
@@ -58,7 +55,20 @@ class MainFragment : Fragment() {
             val estaSincronizado = sp.getBoolean(Constantes.SP_ESTA_SINCRONIZADO, false)
             var lista : List<Pelicula> = mutableListOf()
 
-            if(!estaSincronizado) {
+            var cont = 0
+
+            gestor.obtenerListaPeliculasFirebase({
+                cont = it.size
+            }){
+                Toast.makeText(requireActivity(),
+                    "Error: ${it}", Toast.LENGTH_SHORT).show()
+            }
+
+            delay(1000)
+
+            Log.i(null, "Es " + cont.toString())
+
+            if(!estaSincronizado && cont == 0) {
                 lista = withContext(Dispatchers.IO) {
                     gestor.obtenerListaPeliculasCorrutinas()
                 }

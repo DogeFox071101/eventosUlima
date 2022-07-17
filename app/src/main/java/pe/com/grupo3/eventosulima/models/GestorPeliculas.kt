@@ -75,7 +75,7 @@ class GestorPeliculas {
 
     fun obtenerListaPeliculasCorrutinas(): List<Pelicula> {
         var resultado = mutableListOf<Pelicula>()
-        val url1 = generateUrl("https://drive.google.com/file/d/1Q9Woj4W2PmWkkK_ar0Dsm6quJDGIPggf/view?usp=sharing")
+        val url1 = generateUrl("https://drive.google.com/file/d/1RXbfsFuGdn3vlNvjKy9qNU08bDe-5Ycl/view?usp=sharing")
         val url = URL(url1)
         val urlConnection : HttpURLConnection = url.openConnection() as HttpURLConnection
         urlConnection.requestMethod = "GET"
