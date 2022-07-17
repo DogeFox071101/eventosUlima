@@ -51,7 +51,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tviDirectorPelicula"
+                android:id="@+id/directorPelicula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="64dp"
@@ -72,7 +72,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tviDirectorPelicula" />
+                app:layout_constraintTop_toTopOf="@+id/directorPelicula" />
 
             <TextView
                 android:id="@+id/tviActoresEvento"
@@ -85,10 +85,10 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/tviDirectorPelicula"
+                app:layout_constraintEnd_toEndOf="@+id/directorPelicula"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tviDirectorPelicula"
-                app:layout_constraintTop_toTopOf="@id/tviDirectorPelicula" />
+                app:layout_constraintStart_toStartOf="@+id/directorPelicula"
+                app:layout_constraintTop_toTopOf="@id/directorPelicula" />
 
             <TextView
                 android:id="@+id/textView9"

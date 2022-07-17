@@ -9,7 +9,7 @@
     >
 
     <TextView
-        android:id="@+id/txtPelicula"
+        android:id="@+id/tituloPelicula"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="20dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imagenPelicula"
+        android:id="@+id/ivImagenPelicula"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPelicula"
+        app:layout_constraintTop_toBottomOf="@+id/tituloPelicula"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <ScrollView
@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnReservarPelicula"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenPelicula"
+        app:layout_constraintTop_toBottomOf="@+id/ivImagenPelicula"
         app:layout_constraintVertical_bias="0.968">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,15 +50,14 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tviDirectorPelicula"
+                android:id="@+id/directorPelicula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="64dp"
                 android:text="Stephen Spielberg"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/idiomaPelicula"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -71,10 +70,10 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tviDirectorPelicula" />
+                app:layout_constraintTop_toTopOf="@+id/directorPelicula" />
 
             <TextView
-                android:id="@+id/tviActoresPelicula"
+                android:id="@+id/actoresPelicula"
                 android:layout_width="97dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -84,10 +83,10 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/tviDirectorPelicula"
+                app:layout_constraintEnd_toEndOf="@+id/directorPelicula"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tviDirectorPelicula"
-                app:layout_constraintTop_toTopOf="@id/tviDirectorPelicula" />
+                app:layout_constraintStart_toStartOf="@+id/idiomaPelicula"
+                app:layout_constraintTop_toTopOf="@id/directorPelicula" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -99,10 +98,10 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tviActoresPelicula" />
+                app:layout_constraintTop_toTopOf="@+id/actoresPelicula" />
 
             <TextView
-                android:id="@+id/tviAñoPelicula"
+                android:id="@+id/fechaPelicula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
@@ -111,10 +110,10 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/tviDirectorPelicula"
+                app:layout_constraintEnd_toEndOf="@+id/directorPelicula"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tviActoresPelicula"
-                app:layout_constraintTop_toBottomOf="@+id/tviActoresPelicula" />
+                app:layout_constraintStart_toStartOf="@+id/idiomaPelicula"
+                app:layout_constraintTop_toBottomOf="@+id/actoresPelicula" />
 
             <TextView
                 android:id="@+id/textView17"
@@ -126,7 +125,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tviAñoPelicula" />
+                app:layout_constraintTop_toTopOf="@+id/fechaPelicula" />
 
             <TextView
                 android:id="@+id/textView19"
@@ -138,10 +137,10 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tviIdiomaPelicula" />
+                app:layout_constraintTop_toTopOf="@+id/idiomaPelicula" />
 
             <TextView
-                android:id="@+id/tviIdiomaPelicula"
+                android:id="@+id/idiomaPelicula"
                 android:layout_width="97dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -150,8 +149,8 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tviAñoPelicula"
-                app:layout_constraintTop_toBottomOf="@+id/tviAñoPelicula" />
+                app:layout_constraintStart_toStartOf="@+id/paisPelicula"
+                app:layout_constraintTop_toBottomOf="@+id/fechaPelicula" />
 
             <TextView
                 android:id="@+id/textView20"
@@ -163,10 +162,10 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tviPaisPelicula" />
+                app:layout_constraintTop_toTopOf="@+id/paisPelicula" />
 
             <TextView
-                android:id="@+id/tviPaisPelicula"
+                android:id="@+id/paisPelicula"
                 android:layout_width="97dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -175,8 +174,8 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tviIdiomaPelicula"
-                app:layout_constraintTop_toBottomOf="@+id/tviIdiomaPelicula" />
+                app:layout_constraintStart_toStartOf="@+id/duracionPelicula"
+                app:layout_constraintTop_toBottomOf="@+id/idiomaPelicula" />
 
             <TextView
                 android:id="@+id/textView21"
@@ -188,10 +187,10 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tviDuracionPelicula" />
+                app:layout_constraintTop_toTopOf="@+id/duracionPelicula" />
 
             <TextView
-                android:id="@+id/tviDuracionPelicula"
+                android:id="@+id/duracionPelicula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -199,8 +198,8 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tviPaisPelicula"
-                app:layout_constraintTop_toBottomOf="@+id/tviPaisPelicula" />
+                app:layout_constraintStart_toStartOf="@+id/generoPelicula"
+                app:layout_constraintTop_toBottomOf="@+id/paisPelicula" />
 
             <TextView
                 android:id="@+id/textView22"
@@ -212,10 +211,10 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tviGeneroPelicula" />
+                app:layout_constraintTop_toTopOf="@+id/generoPelicula" />
 
             <TextView
-                android:id="@+id/tviGeneroPelicula"
+                android:id="@+id/generoPelicula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -223,8 +222,8 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tviDuracionPelicula"
-                app:layout_constraintTop_toBottomOf="@+id/tviDuracionPelicula"/>
+                app:layout_constraintStart_toStartOf="@+id/diaFuncionPelicula"
+                app:layout_constraintTop_toBottomOf="@+id/duracionPelicula" />
 
             <TextView
                 android:id="@+id/textView23"
@@ -236,34 +235,35 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tviDiaPelicula" />
+                app:layout_constraintTop_toTopOf="@+id/diaFuncionPelicula" />
 
             <TextView
-                android:id="@+id/tviDiaPelicula"
+                android:id="@+id/diaFuncionPelicula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
                 android:text="LUNES"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tviGeneroPelicula"
-                app:layout_constraintTop_toBottomOf="@+id/tviGeneroPelicula" />
+                app:layout_constraintStart_toEndOf="@+id/textView23"
+                app:layout_constraintTop_toBottomOf="@+id/generoPelicula" />
 
             <TextView
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="64dp"
-                android:text="País:"
+                android:text="Hora Inicio:"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tviHorarioPelicula" />
+                app:layout_constraintTop_toTopOf="@+id/horaInicioPelicula" />
 
             <TextView
-                android:id="@+id/tviHorarioPelicula"
+                android:id="@+id/horaInicioPelicula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -271,8 +271,8 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/tviDiaPelicula"
-                app:layout_constraintTop_toBottomOf="@+id/tviDiaPelicula" />
+                app:layout_constraintStart_toStartOf="@+id/diaFuncionPelicula"
+                app:layout_constraintTop_toBottomOf="@+id/diaFuncionPelicula" />
 
 
 
