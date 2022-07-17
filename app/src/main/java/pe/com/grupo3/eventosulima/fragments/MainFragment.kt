@@ -18,6 +18,7 @@ import kotlinx.coroutines.withContext
 import pe.com.grupo3.eventosulima.Constantes
 import pe.com.grupo3.eventosulima.R
 import pe.com.grupo3.eventosulima.adapters.ListadoPeliculasAdapter
+import pe.com.grupo3.eventosulima.adapters.ListadoPeliculasMainAdapter
 import pe.com.grupo3.eventosulima.models.GestorPeliculas
 import pe.com.grupo3.eventosulima.models.beans.Pelicula
 
@@ -42,7 +43,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mUsername = requireActivity().findViewById(R.id.main_title)
+        mUsername = view.findViewById(R.id.main_title)
         val editor = requireActivity().getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
         val username = editor.getString(Constantes.USERNAME, "")!!.uppercase()
         mUsername.text = "¡HOLA ${username}!"
@@ -56,6 +57,7 @@ class MainFragment : Fragment() {
         GlobalScope.launch(Dispatchers.Main) {
             val estaSincronizado = sp.getBoolean(Constantes.SP_ESTA_SINCRONIZADO, false)
             var lista : List<Pelicula> = mutableListOf()
+
             if(!estaSincronizado) {
                 lista = withContext(Dispatchers.IO) {
                     gestor.obtenerListaPeliculasCorrutinas()
@@ -82,7 +84,7 @@ class MainFragment : Fragment() {
     }
 
     private fun cargarListaPeliculasMain(lista : List<Pelicula>) {
-        val adapter = ListadoPeliculasAdapter(lista)
+        val adapter = ListadoPeliculasMainAdapter(lista)
         mrviListaPeliculas.adapter = adapter
     }
 }

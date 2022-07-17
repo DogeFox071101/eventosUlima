@@ -68,6 +68,7 @@
             android:layout_height="246dp"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:scrollbars="horizontal"
             tools:layout_editor_absoluteX="25dp"
             tools:layout_editor_absoluteY="149dp"
