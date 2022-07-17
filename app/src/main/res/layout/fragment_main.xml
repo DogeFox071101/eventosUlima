@@ -56,20 +56,22 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="407dp"
+        android:layout_height="299dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rviListaPeliculas"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="horizontal"
+            android:layout_height="246dp"
             android:paddingHorizontal="20dp"
             android:paddingVertical="10dp"
+            android:scrollbars="horizontal"
             tools:layout_editor_absoluteX="25dp"
-            tools:layout_editor_absoluteY="149dp" />
+            tools:layout_editor_absoluteY="149dp"
+            tools:listitem="@layout/item_pelicula" />
     </LinearLayout>
 
     <TextView

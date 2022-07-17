@@ -49,20 +49,7 @@ class CarteleraFragment : Fragment() {
         GlobalScope.launch(Dispatchers.Main) {
             val estaSincronizado = sp.getBoolean(Constantes.SP_ESTA_SINCRONIZADO, false)
             var lista : List<Pelicula> = mutableListOf()
-            if(!estaSincronizado) {
-                lista = withContext(Dispatchers.IO) {
-                    gestor.obtenerListaPeliculasCorrutinas()
-                }
-                gestor.guardarListaPeliculasFirebase(lista, {
-                    sp.edit().putBoolean(
-                        Constantes.SP_ESTA_SINCRONIZADO, true).commit()
-                    cargarListaPeliculas(lista)
 
-                }){
-                    Toast.makeText(requireActivity(),
-                    "Error: ${it}", Toast.LENGTH_SHORT).show()
-                }
-            }else {
                 Log.i(null, "Se ingresa aquí")
                 gestor.obtenerListaPeliculasFirebase({
                     cargarListaPeliculas(it)
@@ -72,7 +59,7 @@ class CarteleraFragment : Fragment() {
                 }
             }
         }
-    }
+
 
     private fun cargarListaPeliculas(lista : List<Pelicula>) {
         val adapter = ListadoPeliculasAdapter(lista)
