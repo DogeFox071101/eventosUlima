@@ -58,5 +58,10 @@ class RegisterActivity: AppCompatActivity() {
                 Toast.makeText(this, "Contraseñas no compatibles", Toast.LENGTH_SHORT)
             }
         }
+
+        mButRegresar.setOnClickListener {
+            val intent = Intent(applicationContext, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

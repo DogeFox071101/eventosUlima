@@ -45,36 +45,37 @@ class GestorPeliculas {
 
     fun guardarListaPeliculasFirebase(peliculas : List<Pelicula>, success : () -> Unit, error: (String) -> Unit) {
         val peliculasCol = dbFirebase.collection("Peliculas")
+        Log.i(null, peliculasCol.document().get().toString())
 
-        dbFirebase.runTransaction { transaction ->
-            peliculas.forEach {
-                val mapPelicula = hashMapOf(
-                    "titulo" to it.titulo,
-                    "urlImagen" to it.urlImagen,
-                    "director" to it.director,
-                    "actores" to it.actores,
-                    "fecha" to it.fecha,
-                    "idioma" to it.idioma,
-                    "pais" to it.pais,
-                    "duracion" to it.duracion,
-                    "genero" to it.genero,
-                    "diaFuncion" to it.diaFuncion,
-                    "horaInicio" to it.horaInicio,
-                    "rating" to it.rating,
-                    "capacidad" to it.capacidad
-                )
-                transaction.set(peliculasCol.document(), mapPelicula)
+            dbFirebase.runTransaction { transaction ->
+                peliculas.forEach {
+                    val mapPelicula = hashMapOf(
+                        "titulo" to it.titulo,
+                        "urlImagen" to it.urlImagen,
+                        "director" to it.director,
+                        "actores" to it.actores,
+                        "fecha" to it.fecha,
+                        "idioma" to it.idioma,
+                        "pais" to it.pais,
+                        "duracion" to it.duracion,
+                        "genero" to it.genero,
+                        "diaFuncion" to it.diaFuncion,
+                        "horaInicio" to it.horaInicio,
+                        "rating" to it.rating,
+                        "capacidad" to it.capacidad
+                    )
+                    transaction.set(peliculasCol.document(), mapPelicula)
+                }
+            }.addOnSuccessListener {
+                success()
+            }.addOnFailureListener {
+                error(it.message.toString())
             }
-        }.addOnSuccessListener {
-            success()
-        }.addOnFailureListener {
-            error(it.message.toString())
         }
-    }
 
     fun obtenerListaPeliculasCorrutinas(): List<Pelicula> {
         var resultado = mutableListOf<Pelicula>()
-        val url1 = generateUrl("https://drive.google.com/file/d/1Q9Woj4W2PmWkkK_ar0Dsm6quJDGIPggf/view?usp=sharing")
+        val url1 = generateUrl("https://drive.google.com/file/d/1RXbfsFuGdn3vlNvjKy9qNU08bDe-5Ycl/view?usp=sharing")
         val url = URL(url1)
         val urlConnection : HttpURLConnection = url.openConnection() as HttpURLConnection
         urlConnection.requestMethod = "GET"
