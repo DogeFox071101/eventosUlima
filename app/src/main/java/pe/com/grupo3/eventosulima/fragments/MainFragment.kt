@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import pe.com.grupo3.eventosulima.Constantes
 import pe.com.grupo3.eventosulima.R
 
 class MainFragment : Fragment() {
 
-    private lateinit var mUsername : TextView
+    private lateinit var mUsername: TextView
+    private lateinit var mrviListaPeliculas : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +34,7 @@ class MainFragment : Fragment() {
         mUsername = requireActivity().findViewById(R.id.main_title)
         val editor = requireActivity().getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
         val username = editor.getString(Constantes.USERNAME, "")!!.uppercase()
-
         mUsername.text = "¡HOLA ${username}!"
+
     }
 }
