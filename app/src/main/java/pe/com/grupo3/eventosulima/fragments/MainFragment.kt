@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import pe.com.grupo3.eventosulima.Constantes
@@ -15,6 +16,7 @@ class MainFragment : Fragment() {
 
     private lateinit var mUsername: TextView
     private lateinit var mrviListaPeliculas : RecyclerView
+    private lateinit var toolbar : Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,5 +38,7 @@ class MainFragment : Fragment() {
         val username = editor.getString(Constantes.USERNAME, "")!!.uppercase()
         mUsername.text = "¡HOLA ${username}!"
 
+        toolbar = requireActivity().findViewById(R.id.toolbar)
+        toolbar.visibility = View.GONE
     }
 }
