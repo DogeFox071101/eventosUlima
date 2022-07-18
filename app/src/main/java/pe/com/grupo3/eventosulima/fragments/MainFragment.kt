@@ -226,8 +226,6 @@ class MainFragment : Fragment() {
 
     private fun cargarListaEventosMain(lista : List<Evento>){
         val adapter = ListadoEventosMainAdapter(lista){
-            Toast.makeText(requireActivity(),
-                "Seleccionaste: ${it.titulo}", Toast.LENGTH_SHORT).show()
             val argumentos = Bundle()
 
             argumentos.putString("tituloEvento", it.titulo)

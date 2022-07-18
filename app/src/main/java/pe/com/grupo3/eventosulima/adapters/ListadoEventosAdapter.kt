@@ -35,8 +35,7 @@ class ListadoEventosAdapter(private val mListaEventos : List<Evento>,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_evento, parent, false)
-        val viewHolder = ViewHolder(view)
-        return viewHolder
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

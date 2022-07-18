@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
 
         mNviMain.setNavigationItemSelectedListener {
-            it.setChecked(true)
+            it.isChecked = true
 
             val ft = supportFragmentManager.beginTransaction()
 
