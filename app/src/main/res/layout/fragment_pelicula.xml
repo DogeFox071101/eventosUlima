@@ -35,15 +35,16 @@
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="336dp"
+        android:layout_height="215dp"
         android:layout_marginBottom="56dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/btnReservarPelicula"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivImagenPelicula"
-        app:layout_constraintVertical_bias="0.968">
+        app:layout_constraintVertical_bias="0.82">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -273,8 +274,6 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/diaFuncionPelicula"
                 app:layout_constraintTop_toBottomOf="@+id/diaFuncionPelicula" />
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -70,7 +70,30 @@ class ListaEventosFragment : Fragment() {
     }
 
     private fun cargarListaEventos(lista: List<Evento>) {
-        val adapter = ListadoEventosAdapter(lista)
+        val adapter = ListadoEventosAdapter(lista){
+            Toast.makeText(requireActivity(),
+                "Seleccionaste: ${it.titulo}", Toast.LENGTH_SHORT).show()
+            val argumentos = Bundle()
+
+            argumentos.putString("tituloEvento", it.titulo)
+            argumentos.putString("urlImagenEvento", it.urlImagen)
+            argumentos.putString("directorEvento", it.director)
+            argumentos.putString("actoresEvento", it.actores)
+            argumentos.putString("duracionEvento", it.duracion)
+            argumentos.putString("generoEvento", it.genero)
+            argumentos.putString("diaFuncionEvento", it.diaFuncion)
+            argumentos.putString("horaInicioEvento", it.horaInicio)
+            argumentos.putString("tipoEvento", it.tipoEvento)
+
+            val eventoFragment = EventoFragment()
+            eventoFragment.arguments = argumentos
+
+            val ft = requireActivity().supportFragmentManager.beginTransaction()
+            ft.replace(R.id.fcvEleccion, eventoFragment)
+            ft.addToBackStack(null)
+            ft.commit()
+        }
         mrviEventos.adapter = adapter
+
     }
 }

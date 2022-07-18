@@ -11,7 +11,8 @@ import com.squareup.picasso.Picasso
 import pe.com.grupo3.eventosulima.R
 import pe.com.grupo3.eventosulima.models.beans.Evento
 
-class ListadoEventosAdapter(private val mListaEventos : List<Evento>)
+class ListadoEventosAdapter(private val mListaEventos : List<Evento>,
+                            private val mOnItemClickListener: (evento: Evento)->Unit)
     : RecyclerView.Adapter<ListadoEventosAdapter.ViewHolder>(){
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         val tviEventoNombre : TextView
@@ -51,6 +52,10 @@ class ListadoEventosAdapter(private val mListaEventos : List<Evento>)
             .centerCrop()
             .error(R.mipmap.ic_launcher_round)
             .into(holder.ivEvento)
+
+        holder.itemView.setOnClickListener {
+            mOnItemClickListener(evento)
+        }
 
     }
 
