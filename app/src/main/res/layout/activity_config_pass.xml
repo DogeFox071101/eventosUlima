@@ -34,13 +34,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/newPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
             android:paddingVertical="15dp"
-            android:text="Alpaca"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31" />
@@ -55,32 +55,33 @@
             android:textSize="@dimen/text_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toBottomOf="@+id/newPassword" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/rePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
             android:paddingVertical="15dp"
-            android:text="Alpaca"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
         <TextView
-            android:id="@+id/textView36"
+            android:id="@+id/txtMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="3dp"
             android:text="@string/pass_msg_noMatch"
             android:textColor="@color/red"
-            app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/rePassword"
+            app:layout_constraintTop_toBottomOf="@+id/rePassword" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnContinuar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -99,6 +100,7 @@
             app:layout_constraintGuide_percent="0.5" />
 
         <Button
+            android:id="@+id/btnCancelar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"

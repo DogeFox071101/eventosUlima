@@ -21,7 +21,9 @@
             android:layout_height="40dp"
             android:layout_margin="20dp"
             android:adjustViewBounds="true"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_round_account_circle_24" />
 
         <TextView
             android:id="@+id/main_title"

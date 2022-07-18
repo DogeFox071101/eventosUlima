@@ -34,13 +34,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/newPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingVertical="15dp"
-            android:text="Falcón Choque"
+            android:text="a"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView31" />
@@ -55,20 +55,20 @@
             android:textSize="@dimen/text_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toBottomOf="@+id/newPassword" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/rePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingVertical="15dp"
-            android:text="Leonardo Guillermo"
+            android:text="a"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView32" />
-
+        <!--
         <TextView
             android:id="@+id/textView33"
             android:layout_width="match_parent"
@@ -79,8 +79,7 @@
             android:textSize="@dimen/text_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
-
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
@@ -90,7 +89,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView33" />
-
+        -->
         <TextView
             android:id="@+id/textView34"
             android:layout_width="match_parent"
@@ -101,16 +100,16 @@
             android:textSize="@dimen/text_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner" />
+            app:layout_constraintTop_toBottomOf="@+id/rePassword" />
 
         <EditText
             android:id="@+id/editTextDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date"
+            android:inputType="number"
             android:paddingVertical="15dp"
-            android:text="07 de noviembre del 2001"
+            android:text="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView34" />
@@ -128,19 +127,20 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/editTextCodAlumno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:paddingVertical="15dp"
-            android:text="20190702"
+            android:text="0"
+            android:enabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnContinuar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -159,6 +159,7 @@
             app:layout_constraintGuide_percent="0.5" />
 
         <Button
+            android:id="@+id/btnCancelar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"

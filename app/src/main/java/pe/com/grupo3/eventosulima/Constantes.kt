@@ -8,6 +8,7 @@ class Constantes {
         val SP_ESTA_SINCRONIZADO = "ESTA_SINCRONIZADO"
         val SP_ESTA_LOGEADO = "ESTA_LOGEADO"
 
+        val USR_ID = "UsrId"
         val USERNAME = "Username"
         val APELLIDOS = "Apellidos"
         val NOMBRES = "Nombres"
