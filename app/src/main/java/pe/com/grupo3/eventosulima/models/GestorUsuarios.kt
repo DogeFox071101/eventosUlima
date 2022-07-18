@@ -30,6 +30,7 @@ class GestorUsuarios {
             .addOnSuccessListener {
                 if(it!!.documents.size > 0){
                     val usuario = Usuario(
+                        it.documents[0].id,
                         it.documents[0]["username"].toString(),
                         it.documents[0]["nombres"].toString(),
                         it.documents[0]["password"].toString(),
@@ -57,24 +58,28 @@ class GestorUsuarios {
         }
     }
 
-/*    fun obtenerNombre(username : String, callback: (List<String>?) -> Unit *//*success : () -> Unit, error: (String) -> Unit*//*) {
-        dbFirebase.collection("Usuarios")
-            .whereEqualTo("username", username)
-            .get()
-            .addOnSuccessListener { documents ->
-                for(document in documents) {
-                    val usuario = listOf(
-                        document.data["username"] as String,
-                        document.data["nombres"] as String,
-                        document.data["password"] as String,
-                        document.data["apellidos"] as String,
-                        (document.data["edad"] as Int).toString(),
-                        (document.data["codigoUlima"] as Int).toString())
-                    callback(usuario)
-                }
-            }
-            .addOnFailureListener {
-                error(it.message.toString())
-            }
-    }*/
+    fun editarUsuarioFirebase(usuario: Usuario, success: () -> Unit, error: (String) -> Unit) {
+        val documento = dbFirebase.collection("Usuarios").document(usuario.usr_id)
+        dbFirebase.runTransaction {
+            val snapshot = it.get(documento)
+            it.update(documento, "apellidos", usuario.apellidos)
+            it.update(documento, "nombres", usuario.nombres)
+            it.update(documento, "edad", usuario.edad)
+        }.addOnSuccessListener {
+            success()
+        }.addOnFailureListener {
+            error(it.message.toString())
+        }
+    }
+    fun editarPasswordFirebase(usr_id: String, password: String, success: () -> Unit, error: (String) -> Unit) {
+        val documento = dbFirebase.collection("Usuarios").document(usr_id)
+        dbFirebase.runTransaction {
+            val snapshot = it.get(documento)
+            it.update(documento, "password", password)
+        }.addOnSuccessListener {
+            success()
+        }.addOnFailureListener {
+            error(it.message.toString())
+        }
+    }
 }

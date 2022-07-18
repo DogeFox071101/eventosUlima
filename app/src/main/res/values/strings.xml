@@ -43,7 +43,7 @@
     <string name="edit_gender_1">Hombre</string>
     <string name="edit_gender_2">Mujer</string>
     <string name="edit_gender_3">Otro</string>
-    <string name="edit_birth">Fecha de Nacimiento:</string>
+    <string name="edit_birth">Edad:</string>
     <string name="edit_idStudent">Código de Alumno:</string>
 
     <string name="pass_title">Cambiar Contraseña</string>

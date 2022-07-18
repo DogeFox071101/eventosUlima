@@ -7,13 +7,12 @@ class Constantes {
         val NOMBRE_SP = "SP_EVENTOSAPP"
         val SP_ESTA_SINCRONIZADO = "ESTA_SINCRONIZADO"
         val SP_ESTA_LOGEADO = "ESTA_LOGEADO"
-
+        val SP_ESTA_SINCRONIZADO_EVENTOS = "ESTA_SINCRONIZADO_EVENTO"
+        val USR_ID = "UsrId"
         val USERNAME = "Username"
         val APELLIDOS = "Apellidos"
         val NOMBRES = "Nombres"
         val CODIGO_ULIMA = "CodigoUlima"
         val EDAD = "Edad"
-
-
     }
 }
