@@ -6,11 +6,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.*
 import pe.com.grupo3.eventosulima.Constantes
 import pe.com.grupo3.eventosulima.R
@@ -28,6 +32,8 @@ class MainFragment : Fragment() {
     private lateinit var mrviListaPeliculas : RecyclerView
     private lateinit var mrviListaEventos : RecyclerView
     private lateinit var toolbar : Toolbar
+    private lateinit var iBtnMovies : ImageButton
+    private lateinit var main_photo : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,12 +56,16 @@ class MainFragment : Fragment() {
         mUsername.text = "¡HOLA ${username}!"
         mrviListaPeliculas = view.findViewById(R.id.rviListaPeliculas)
         mrviListaEventos = view.findViewById(R.id.rviListaEventos)
+        iBtnMovies = view.findViewById(R.id.iBtnMovies)
+
         val gestor = GestorPeliculas()
         val gestor1 = GestorEventos()
         val sp = requireActivity().getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
 
         toolbar = requireActivity().findViewById(R.id.toolbar)
         toolbar.visibility = View.GONE
+
+        main_photo = requireActivity().findViewById(R.id.main_photo)
 
         GlobalScope.launch(Dispatchers.Main) {
             val estaSincronizado = sp.getBoolean(Constantes.SP_ESTA_SINCRONIZADO, false)
@@ -78,7 +88,7 @@ class MainFragment : Fragment() {
                 cont = it.size
             }){
                 Toast.makeText(requireActivity(),
-                    "Error: ${it}", Toast.LENGTH_SHORT).show()
+                    "Error: $it", Toast.LENGTH_SHORT).show()
             }
 
 
@@ -87,6 +97,7 @@ class MainFragment : Fragment() {
 
             Log.i(null, "Es " + cont.toString())
             Log.i(null, "Eventos es " + cont1.toString())
+            Log.i(null, "Es $cont")
 
             if(!estaSincronizado && cont == 0 && cont1 == 0) {
                 lista = withContext(Dispatchers.IO) {
@@ -104,7 +115,7 @@ class MainFragment : Fragment() {
 
                 }){
                     Toast.makeText(requireActivity(),
-                        "Error: ${it}", Toast.LENGTH_SHORT).show()
+                        "Error: $it", Toast.LENGTH_SHORT).show()
                 }
 
                 gestor1.guardarListaEventosFirebase(lista1, {
@@ -123,7 +134,7 @@ class MainFragment : Fragment() {
                     cargarListaPeliculasMain(it)
                 }){
                     Toast.makeText(requireActivity(),
-                        "Error: ${it}", Toast.LENGTH_SHORT).show()
+                        "Error: $it", Toast.LENGTH_SHORT).show()
                 }
 
                 gestor1.obtenerListaEventosFirebase({
@@ -133,6 +144,18 @@ class MainFragment : Fragment() {
                         "Error: ${it}", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+        main_photo.setOnClickListener {
+
+        }
+
+        iBtnMovies.setOnClickListener{
+            val fragment = CarteleraFragment()
+            val fragmentManager = requireActivity().supportFragmentManager
+            fragmentManager.beginTransaction()
+                .replace(R.id.fcvEleccion, fragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 

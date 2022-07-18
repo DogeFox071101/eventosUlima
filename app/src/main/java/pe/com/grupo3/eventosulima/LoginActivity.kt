@@ -53,17 +53,12 @@ class LoginActivity: AppCompatActivity() {
                 }else{
                     Log.i("Log", it.toString())
                     spEdit.putBoolean(Constantes.SP_ESTA_LOGEADO, true)
-                    println(it.username+"a")
+                    spEdit.putString(Constantes.USR_ID, it.usr_id)
                     spEdit.putString(Constantes.USERNAME, it.username)
-                    println(it.username+"b")
                     spEdit.putString(Constantes.APELLIDOS, it.apellidos)
-                    println(it.username+"c")
                     spEdit.putString(Constantes.NOMBRES, it.nombres)
-                    println(it.username+"d")
                     spEdit.putString(Constantes.EDAD, it.edad.toString())
-                    println(it.username+"e")
                     spEdit.putString(Constantes.CODIGO_ULIMA, it.codigoULima.toString())
-                    println(it.username+"f")
                     spEdit.apply()
 
                     startActivity(Intent(this, MainActivity::class.java))

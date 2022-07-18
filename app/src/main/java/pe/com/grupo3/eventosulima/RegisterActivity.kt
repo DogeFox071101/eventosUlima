@@ -42,14 +42,22 @@ class RegisterActivity: AppCompatActivity() {
             if(mEtePassword.text.toString() == mEteRepPassword.text.toString()){
                 GlobalScope.launch(Dispatchers.Main) {
                     val gestor = GestorUsuarios.getInstance()
-                    val usuario : Usuario = Usuario(mEteUsername.text.toString(), mEteNombres.text.toString(), mEtePassword.text.toString(),
-                        mEteApellidos.text.toString(), Integer.parseInt(mEteEdad.text.toString()), Integer.parseInt(mEteCodigo.text.toString()))
-                    gestor.guardarUsuarioFirebase(usuario, {
-                        Toast.makeText(applicationContext, "Usuario Registrado Correctamente", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(applicationContext, LoginActivity::class.java)
-                        startActivity(intent)
-
-                    }){
+                    val usuario = Usuario(
+                        "",
+                        mEteUsername.text.toString(),
+                        mEteNombres.text.toString(), mEtePassword.text.toString(),
+                        mEteApellidos.text.toString(),
+                        Integer.parseInt(mEteEdad.text.toString()),
+                        Integer.parseInt(mEteCodigo.text.toString()))
+                    gestor.guardarUsuarioFirebase(
+                        usuario,
+                        {
+                            Toast.makeText(applicationContext,"Usuario Registrado Correctamente",Toast.LENGTH_SHORT)
+                                .show()
+                            val intent = Intent(applicationContext, LoginActivity::class.java)
+                            startActivity(intent)
+                        }
+                    ){
                         Toast.makeText(applicationContext, "${it}", Toast.LENGTH_SHORT).show()
                     }
                 }
