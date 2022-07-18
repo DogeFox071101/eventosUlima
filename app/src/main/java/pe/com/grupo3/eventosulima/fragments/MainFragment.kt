@@ -96,7 +96,5 @@ class MainFragment : Fragment() {
     private fun cargarListaPeliculasMain(lista : List<Pelicula>) {
         val adapter = ListadoPeliculasMainAdapter(lista)
         mrviListaPeliculas.adapter = adapter
-        //mostrar el recycler view de manera horizontal
-
     }
 }
