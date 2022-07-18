@@ -1,6 +1,10 @@
 package pe.com.grupo3.eventosulima.fragments
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
+import android.media.ExifInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -36,6 +40,7 @@ class MainFragment : Fragment() {
     private lateinit var iBtnMovies : ImageButton
     private lateinit var iBtnOtherEvents : ImageButton
     private lateinit var main_photo : ImageView
+    private var mFotoPath : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +58,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mUsername = view.findViewById(R.id.main_title)
+
         val editor = requireActivity().getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
         val username = editor.getString(Constantes.USERNAME, "")!!.uppercase()
         mUsername.text = "¡HOLA ${username}!"
@@ -70,6 +76,7 @@ class MainFragment : Fragment() {
         toolbar.visibility = View.GONE
 
         main_photo = requireActivity().findViewById(R.id.main_photo)
+        mFotoPath = sp.getString(Constantes.RUTA_FOTO,"")
 
         GlobalScope.launch(Dispatchers.Main) {
             val estaSincronizado = sp.getBoolean(Constantes.SP_ESTA_SINCRONIZADO, false)
@@ -150,7 +157,7 @@ class MainFragment : Fragment() {
             }
         }
         main_photo.setOnClickListener {
-
+            mostrarFoto()
         }
 
         iBtnMovies.setOnClickListener{
@@ -162,7 +169,7 @@ class MainFragment : Fragment() {
                 .commit()
         }
         iBtnOtherEvents.setOnClickListener{
-            val fragment = EventosFragment()
+            val fragment = ListaEventosFragment()
             val fragmentManager = requireActivity().supportFragmentManager
             fragmentManager.beginTransaction()
                 .replace(R.id.fcvEleccion, fragment)
@@ -170,6 +177,24 @@ class MainFragment : Fragment() {
                 .commit()
         }
 
+        if(mFotoPath == ""){
+
+        }else{
+            mostrarFoto()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val sp = requireActivity().getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
+
+        mFotoPath = sp.getString(Constantes.RUTA_FOTO,"")
+
+        if(mFotoPath == ""){
+
+        }else{
+            mostrarFoto()
+        }
     }
 
     private fun cargarListaPeliculasMain(lista : List<Pelicula>) {
@@ -224,5 +249,69 @@ class MainFragment : Fragment() {
             ft.commit()
         }
         mrviListaEventos.adapter = adapter
+    }
+
+    private fun mostrarFoto() {
+        val matriz = Matrix()
+        val angulo = obtenerAnguloRotacion()
+        matriz.postRotate(angulo)
+
+        val options = BitmapFactory.Options()
+        options.inJustDecodeBounds = true
+        BitmapFactory.decodeFile(mFotoPath!!, options)
+
+        // Cálculo de espacio disponible
+        val iviHeight = main_photo.height
+        val iviWidth = main_photo.width
+
+        // Calcular el factor de escalamiento
+        var scaleFactor = 1
+        if(angulo == 90f || angulo == 270f){
+            scaleFactor = Math.min(
+                iviWidth / options.outHeight,
+                iviHeight / options.outWidth
+            )
+        }
+        else{
+            scaleFactor = Math.min(
+                iviWidth / options.outWidth,
+                iviHeight / options.outHeight
+            )
+        }
+
+        options.inJustDecodeBounds = false
+        options.inSampleSize = scaleFactor
+
+        val bitmap : Bitmap = BitmapFactory.decodeFile(mFotoPath!!, options)
+        val bitmapRotated = Bitmap.createBitmap(
+            bitmap,
+            0,
+            0,
+            bitmap.width,
+            bitmap.height,
+            matriz,
+            true)
+        main_photo.setImageBitmap(bitmapRotated)
+    }
+
+    private fun obtenerAnguloRotacion(): Float {
+        val exifInterface = ExifInterface(mFotoPath!!)
+        val orientation = exifInterface.getAttributeInt(
+            ExifInterface.TAG_ORIENTATION,
+            ExifInterface.ORIENTATION_UNDEFINED
+        )
+
+        if(orientation == ExifInterface.ORIENTATION_ROTATE_90){
+            return 90f
+        }
+        else if (orientation == ExifInterface.ORIENTATION_ROTATE_180){
+            return 180f
+        }
+        else if(orientation == ExifInterface.ORIENTATION_ROTATE_270) {
+            return 270f
+        }
+        else{
+            return 0f
+        }
     }
 }

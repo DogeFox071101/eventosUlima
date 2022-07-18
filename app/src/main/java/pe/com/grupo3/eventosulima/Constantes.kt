@@ -14,6 +14,7 @@ class Constantes {
         val NOMBRES = "Nombres"
         val CODIGO_ULIMA = "CodigoUlima"
         val EDAD = "Edad"
+        val RUTA_FOTO = "rutaFoto"
 
     }
     class NotificationData {
