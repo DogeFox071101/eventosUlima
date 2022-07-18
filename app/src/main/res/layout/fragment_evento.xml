@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="40dp"
     >
-
+    <!--Alpaca-->
     <TextView
         android:id="@+id/tviEvento"
         android:layout_width="wrap_content"
@@ -231,5 +231,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnReservarEvento"
         tools:ignore="SpeakableTextPresentCheck" />
-
+    <!--Alpaca-->
 </androidx.constraintlayout.widget.ConstraintLayout>
