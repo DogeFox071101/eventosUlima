@@ -162,7 +162,7 @@ class MainFragment : Fragment() {
                 .commit()
         }
         iBtnOtherEvents.setOnClickListener{
-            val fragment = EventosFragment()
+            val fragment = ListaEventosFragment()
             val fragmentManager = requireActivity().supportFragmentManager
             fragmentManager.beginTransaction()
                 .replace(R.id.fcvEleccion, fragment)

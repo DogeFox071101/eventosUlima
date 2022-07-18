@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         eteNombre.text = nameUser!!.uppercase()
 
         mNviMain.setNavigationItemSelectedListener {
-            it.setChecked(true)
+            it.isChecked = true
 
             val ft = supportFragmentManager.beginTransaction()
 
