@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -23,6 +25,10 @@ import pe.com.grupo3.eventosulima.models.beans.Pelicula
 class CarteleraFragment : Fragment() {
 
     private lateinit var mRviPeliculas : RecyclerView
+
+    private val TAG = "MainActivity"
+
+    private var mAdView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,6 +78,9 @@ class CarteleraFragment : Fragment() {
             }
         }
 
+        mAdView = view.findViewById(R.id.imageView)
+        val adRequest: AdRequest = AdRequest.Builder().build()
+        mAdView?.loadAd(adRequest)
 
     }
 
