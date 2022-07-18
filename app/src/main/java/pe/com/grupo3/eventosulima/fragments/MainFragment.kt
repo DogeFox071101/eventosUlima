@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
@@ -24,6 +25,7 @@ class MainFragment : Fragment() {
     private lateinit var mUsername: TextView
     private lateinit var mrviListaPeliculas : RecyclerView
     private lateinit var toolbar : Toolbar
+    private lateinit var iBtnMovies : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +47,7 @@ class MainFragment : Fragment() {
         val username = editor.getString(Constantes.USERNAME, "")!!.uppercase()
         mUsername.text = "¡HOLA ${username}!"
         mrviListaPeliculas = view.findViewById(R.id.rviListaPeliculas)
+        iBtnMovies = view.findViewById(R.id.iBtnMovies)
         val gestor = GestorPeliculas()
         val sp = requireActivity().getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
 
@@ -90,6 +93,14 @@ class MainFragment : Fragment() {
                         "Error: $it", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+        iBtnMovies.setOnClickListener{
+            val fragment = CarteleraFragment()
+            val fragmentManager = requireActivity().supportFragmentManager
+            fragmentManager.beginTransaction()
+                .replace(R.id.fcvEleccion, fragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
 
