@@ -18,6 +18,7 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.*
 import pe.com.grupo3.eventosulima.Constantes
 import pe.com.grupo3.eventosulima.R
+import pe.com.grupo3.eventosulima.adapters.ListadoEventosAdapter
 import pe.com.grupo3.eventosulima.adapters.ListadoEventosMainAdapter
 import pe.com.grupo3.eventosulima.adapters.ListadoPeliculasAdapter
 import pe.com.grupo3.eventosulima.adapters.ListadoPeliculasMainAdapter
@@ -173,28 +174,55 @@ class MainFragment : Fragment() {
 
     private fun cargarListaPeliculasMain(lista : List<Pelicula>) {
         val adapter = ListadoPeliculasMainAdapter(lista){
-            //al tocar una pelicula enviar al fragment PeliculaFragment
-            val fragment = PeliculaFragment()
-            val fragmentManager = requireActivity().supportFragmentManager
-            fragmentManager.beginTransaction()
-                .replace(R.id.fcvEleccion, fragment)
-                .addToBackStack(null)
-                .commit()
+            val argumentos = Bundle()
+
+            argumentos.putString("tituloPelicula", it.titulo)
+            argumentos.putString("urlImagenPelicula", it.urlImagen)
+            argumentos.putString("directorPelicula", it.director)
+            argumentos.putString("actoresPelicula", it.actores)
+            argumentos.putString("fechaPelicula", it.fecha)
+            argumentos.putString("idiomaPelicula", it.idioma)
+            argumentos.putString("paisPelicula", it.pais)
+            argumentos.putString("duracionPelicula", it.duracion)
+            argumentos.putString("generoPelicula", it.genero)
+            argumentos.putString("diaFuncionPelicula", it.diaFuncion)
+            argumentos.putString("horaInicioPelicula", it.horaInicio)
+
+            val peliculaFragment = PeliculaFragment()
+            peliculaFragment.arguments = argumentos
+
+            val ft = requireActivity().supportFragmentManager.beginTransaction()
+            ft.replace(R.id.fcvEleccion, peliculaFragment)
+            ft.addToBackStack(null)
+            ft.commit()
         }
         mrviListaPeliculas.adapter = adapter
     }
 
     private fun cargarListaEventosMain(lista : List<Evento>){
         val adapter = ListadoEventosMainAdapter(lista){
-            //al tocar el evento enviar al fragment EventosFragment
-            val fragment = EventosFragment()
-            val fragmentManager = requireActivity().supportFragmentManager
-            fragmentManager.beginTransaction()
-                .replace(R.id.fcvEleccion, fragment)
-                .addToBackStack(null)
-                .commit()
-        }
+            Toast.makeText(requireActivity(),
+                "Seleccionaste: ${it.titulo}", Toast.LENGTH_SHORT).show()
+            val argumentos = Bundle()
 
+            argumentos.putString("tituloEvento", it.titulo)
+            argumentos.putString("urlImagenEvento", it.urlImagen)
+            argumentos.putString("directorEvento", it.director)
+            argumentos.putString("actoresEvento", it.actores)
+            argumentos.putString("duracionEvento", it.duracion)
+            argumentos.putString("generoEvento", it.genero)
+            argumentos.putString("diaFuncionEvento", it.diaFuncion)
+            argumentos.putString("horaInicioEvento", it.horaInicio)
+            argumentos.putString("tipoEvento", it.tipoEvento)
+
+            val eventoFragment = EventoFragment()
+            eventoFragment.arguments = argumentos
+
+            val ft = requireActivity().supportFragmentManager.beginTransaction()
+            ft.replace(R.id.fcvEleccion, eventoFragment)
+            ft.addToBackStack(null)
+            ft.commit()
+        }
         mrviListaEventos.adapter = adapter
     }
 }
