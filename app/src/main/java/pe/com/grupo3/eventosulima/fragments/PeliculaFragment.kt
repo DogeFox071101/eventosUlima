@@ -23,6 +23,7 @@ class PeliculaFragment: Fragment() {
     private var diaFuncionPelicula : String? = null
     private var horaInicioPelicula : String? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

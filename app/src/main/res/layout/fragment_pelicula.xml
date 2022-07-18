@@ -32,11 +32,13 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloPelicula"
-        app:srcCompat="@drawable/ic_launcher_background" />
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:ignore="ImageContrastCheck" />
 
     <ScrollView
-        android:layout_width="336dp"
-        android:layout_height="215dp"
+        android:id="@+id/scrollView2"
+        android:layout_width="330dp"
+        android:layout_height="251dp"
         android:layout_marginBottom="56dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/btnReservarPelicula"
@@ -44,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivImagenPelicula"
-        app:layout_constraintVertical_bias="0.82">
+        app:layout_constraintVertical_bias="0.651">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -290,19 +292,21 @@
         android:text="RESERVAR"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/butRegresar" />
 
     <ImageButton
         android:id="@+id/butRegresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="32dp"
+        android:background="#00B5B5B5"
         android:minHeight="48dp"
         android:src="@drawable/ic_baseline_navigate_before_24"
         android:text="REGRESAR"
         app:layout_constraintBottom_toBottomOf="@+id/btnReservarPelicula"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
         app:layout_constraintTop_toTopOf="@+id/btnReservarPelicula"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,6 +33,7 @@ class MainFragment : Fragment() {
     private lateinit var mrviListaEventos : RecyclerView
     private lateinit var toolbar : Toolbar
     private lateinit var iBtnMovies : ImageButton
+    private lateinit var iBtnOtherEvents : ImageButton
     private lateinit var main_photo : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +58,8 @@ class MainFragment : Fragment() {
         mrviListaPeliculas = view.findViewById(R.id.rviListaPeliculas)
         mrviListaEventos = view.findViewById(R.id.rviListaEventos)
         iBtnMovies = view.findViewById(R.id.iBtnMovies)
+        iBtnOtherEvents = view.findViewById(R.id.iBtnOtherEvents)
+
 
         val gestor = GestorPeliculas()
         val gestor1 = GestorEventos()
@@ -157,6 +160,15 @@ class MainFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+        iBtnOtherEvents.setOnClickListener{
+            val fragment = EventosFragment()
+            val fragmentManager = requireActivity().supportFragmentManager
+            fragmentManager.beginTransaction()
+                .replace(R.id.fcvEleccion, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
     }
 
     private fun cargarListaPeliculasMain(lista : List<Pelicula>) {
