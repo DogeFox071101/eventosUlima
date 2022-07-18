@@ -14,5 +14,13 @@ class Constantes {
         val NOMBRES = "Nombres"
         val CODIGO_ULIMA = "CodigoUlima"
         val EDAD = "Edad"
+
+    }
+    class NotificationData {
+        companion object {
+            val NOTIFICATION_CHANNEL_ID = "1"
+            val NOTIFICATION_CHANNEL_NAME = "LOGIN"
+            val NOTIFICATION_CHANNEL_DESCRIPTION = "Notification channel for login purposes"
+        }
     }
 }
