@@ -1,5 +1,6 @@
 package pe.com.grupo3.eventosulima.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import pe.com.grupo3.eventosulima.R
+import pe.com.grupo3.eventosulima.fragments.CalificacionPeliculaFragment
+import pe.com.grupo3.eventosulima.fragments.PeliculaFragment
 import pe.com.grupo3.eventosulima.models.beans.Pelicula
 
 class ListadoPeliculasAdapter(private val mListaPeliculas : List<Pelicula>,
@@ -21,7 +24,6 @@ class ListadoPeliculasAdapter(private val mListaPeliculas : List<Pelicula>,
         val tviDiaFuncion : TextView
         val tviHorario : TextView
         val tviRating : TextView
-        val butCalificar : Button
 
         init {
             tviPeliculaNombre = view.findViewById(R.id.tviPeliculaNombre)
@@ -29,13 +31,18 @@ class ListadoPeliculasAdapter(private val mListaPeliculas : List<Pelicula>,
             tviDiaFuncion = view.findViewById(R.id.tviDia)
             tviHorario = view.findViewById(R.id.tviHorario)
             tviRating = view.findViewById(R.id.tviRating)
-            butCalificar = view.findViewById(R.id.butCalificar)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_pelicula, parent, false)
+
+        //capturar el boton butCalificar
+        val butCalificar = view.findViewById<Button>(R.id.butCalificar)
+        butCalificar.setOnClickListener {
+
+        }
         return ViewHolder(view)
     }
 

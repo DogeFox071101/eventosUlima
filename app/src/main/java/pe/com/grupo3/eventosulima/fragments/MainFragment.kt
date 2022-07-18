@@ -26,6 +26,7 @@ class MainFragment : Fragment() {
     private lateinit var mrviListaPeliculas : RecyclerView
     private lateinit var toolbar : Toolbar
     private lateinit var iBtnMovies : ImageButton
+    private lateinit var iBtnOtherEvents : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +49,8 @@ class MainFragment : Fragment() {
         mUsername.text = "¡HOLA ${username}!"
         mrviListaPeliculas = view.findViewById(R.id.rviListaPeliculas)
         iBtnMovies = view.findViewById(R.id.iBtnMovies)
+        iBtnOtherEvents = view.findViewById(R.id.iBtnOtherEvents)
+
         val gestor = GestorPeliculas()
         val sp = requireActivity().getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
 
@@ -102,6 +105,15 @@ class MainFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+        iBtnOtherEvents.setOnClickListener{
+            val fragment = EventosFragment()
+            val fragmentManager = requireActivity().supportFragmentManager
+            fragmentManager.beginTransaction()
+                .replace(R.id.fcvEleccion, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
     }
 
     private fun cargarListaPeliculasMain(lista : List<Pelicula>) {
