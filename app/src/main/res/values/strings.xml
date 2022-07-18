@@ -23,7 +23,7 @@
     <string name="confirmar">CONFIRMAR</string>
 
     <string name="adMobID">ca-app-pub-3940256099942544~6300978111</string>
-
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="global_padding">20dp</string>
 
     <string name="main_title">¡Hola Usuario!</string>
