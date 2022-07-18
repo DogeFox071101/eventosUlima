@@ -36,6 +36,7 @@ class ListadoPeliculasAdapter(private val mListaPeliculas : List<Pelicula>,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_pelicula, parent, false)
+
         return ViewHolder(view)
     }
 

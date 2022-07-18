@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.gms.ads.MobileAds
 import com.google.android.material.navigation.NavigationView
 import pe.com.grupo3.eventosulima.fragments.CarteleraFragment
+import pe.com.grupo3.eventosulima.fragments.ListaEventosFragment
 import pe.com.grupo3.eventosulima.fragments.MainFragment
 import pe.com.grupo3.eventosulima.fragments.NosotrosFragment
 
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private val fragmentCartelera = CarteleraFragment()
     private val fragmentMain = MainFragment()
     private val fragmentNosotros = NosotrosFragment()
+    private val fragmentListaEventos = ListaEventosFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.menInicio -> mostrarFragmentMain(ft)
                 R.id.menCartelera -> mostrarFragmentCartelera(ft)
                 R.id.menSobreNosotros -> mostrarFragmentNosotros(ft)
+                R.id.menOtrosEventos -> mostrarFragmentOtrosEventos(ft)
                 R.id.menCerrarSesion -> cerrarSesion()
             }
             ft.addToBackStack(null)
@@ -84,6 +87,10 @@ class MainActivity : AppCompatActivity() {
 
 
         MobileAds.initialize(this) {}
+    }
+
+    private fun mostrarFragmentOtrosEventos(ft: FragmentTransaction) {
+        ft.replace(R.id.fcvEleccion, fragmentListaEventos)
     }
 
     private fun mostrarFragmentNosotros(ft: FragmentTransaction) {
