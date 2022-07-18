@@ -84,7 +84,7 @@ class MainFragment : Fragment() {
                 cont1 = it.size
             }){
                 Toast.makeText(requireActivity(),
-                    "Error: ${it}", Toast.LENGTH_SHORT).show()
+                    "Error: $it", Toast.LENGTH_SHORT).show()
             }
 
             gestor.obtenerListaPeliculasFirebase({
@@ -98,8 +98,8 @@ class MainFragment : Fragment() {
 
             delay(1000)
 
-            Log.i(null, "Es " + cont.toString())
-            Log.i(null, "Eventos es " + cont1.toString())
+            Log.i(null, "Es $cont")
+            Log.i(null, "Eventos es $cont1")
             Log.i(null, "Es $cont")
 
             if(!estaSincronizado && cont == 0 && cont1 == 0) {
@@ -128,7 +128,7 @@ class MainFragment : Fragment() {
 
                 }){
                     Toast.makeText(requireActivity(),
-                        "Error: ${it}", Toast.LENGTH_SHORT).show()
+                        "Error: $it", Toast.LENGTH_SHORT).show()
                 }
 
             }else {
@@ -144,7 +144,7 @@ class MainFragment : Fragment() {
                     cargarListaEventosMain(it)
                 }){
                     Toast.makeText(requireActivity(),
-                        "Error: ${it}", Toast.LENGTH_SHORT).show()
+                        "Error: $it", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -172,12 +172,29 @@ class MainFragment : Fragment() {
     }
 
     private fun cargarListaPeliculasMain(lista : List<Pelicula>) {
-        val adapter = ListadoPeliculasMainAdapter(lista)
+        val adapter = ListadoPeliculasMainAdapter(lista){
+            //al tocar una pelicula enviar al fragment PeliculaFragment
+            val fragment = PeliculaFragment()
+            val fragmentManager = requireActivity().supportFragmentManager
+            fragmentManager.beginTransaction()
+                .replace(R.id.fcvEleccion, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
         mrviListaPeliculas.adapter = adapter
     }
 
     private fun cargarListaEventosMain(lista : List<Evento>){
-        val adapter = ListadoEventosMainAdapter(lista)
+        val adapter = ListadoEventosMainAdapter(lista){
+            //al tocar el evento enviar al fragment EventosFragment
+            val fragment = EventosFragment()
+            val fragmentManager = requireActivity().supportFragmentManager
+            fragmentManager.beginTransaction()
+                .replace(R.id.fcvEleccion, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
         mrviListaEventos.adapter = adapter
     }
 }

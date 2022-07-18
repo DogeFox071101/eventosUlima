@@ -10,8 +10,10 @@ import com.squareup.picasso.Picasso
 import pe.com.grupo3.eventosulima.R
 import pe.com.grupo3.eventosulima.models.beans.Pelicula
 
-class ListadoPeliculasMainAdapter(private val mListaPeliculasMain : List<Pelicula>)
-    : RecyclerView.Adapter<ListadoPeliculasMainAdapter.ViewHolder>(){
+class ListadoPeliculasMainAdapter(private val mListaPeliculasMain : List<Pelicula>,
+  private val mListener: (pelicula:Pelicula)->Unit) :
+    RecyclerView.Adapter<ListadoPeliculasMainAdapter.ViewHolder>()
+{
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         val tviPeliculaNombre2 : TextView
         val ivPelicula2 : ImageView
@@ -39,7 +41,9 @@ class ListadoPeliculasMainAdapter(private val mListaPeliculasMain : List<Pelicul
             .centerCrop()
             .error(R.mipmap.ic_launcher_round)
             .into(holder.ivPelicula2)
-
+        holder.itemView.setOnClickListener {
+            mListener(pelicula)
+        }
     }
 
     override fun getItemCount(): Int {
