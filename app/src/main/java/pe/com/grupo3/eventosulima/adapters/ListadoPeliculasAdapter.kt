@@ -24,8 +24,8 @@ class ListadoPeliculasAdapter(private val mListaPeliculas : List<Pelicula>,
         val butCalificar : Button
 
         init {
-            tviPeliculaNombre = view.findViewById(R.id.tviPeliculaNombre)
-            tviPelicula = view.findViewById(R.id.ivPelicula)
+            tviPeliculaNombre = view.findViewById(R.id.tviPeliculaNombre2)
+            tviPelicula = view.findViewById(R.id.ivPelicula2)
             tviDiaFuncion = view.findViewById(R.id.tviDia)
             tviHorario = view.findViewById(R.id.tviHorario)
             tviRating = view.findViewById(R.id.tviRating)

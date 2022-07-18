@@ -61,12 +61,12 @@ class MainFragment : Fragment() {
                 cont = it.size
             }){
                 Toast.makeText(requireActivity(),
-                    "Error: ${it}", Toast.LENGTH_SHORT).show()
+                    "Error: $it", Toast.LENGTH_SHORT).show()
             }
 
             delay(1000)
 
-            Log.i(null, "Es " + cont.toString())
+            Log.i(null, "Es $cont")
 
             if(!estaSincronizado && cont == 0) {
                 lista = withContext(Dispatchers.IO) {
@@ -79,7 +79,7 @@ class MainFragment : Fragment() {
 
                 }){
                     Toast.makeText(requireActivity(),
-                        "Error: ${it}", Toast.LENGTH_SHORT).show()
+                        "Error: $it", Toast.LENGTH_SHORT).show()
                 }
             }else {
                 Log.i(null, "Se ingresa aquí")
@@ -87,7 +87,7 @@ class MainFragment : Fragment() {
                     cargarListaPeliculasMain(it)
                 }){
                     Toast.makeText(requireActivity(),
-                        "Error: ${it}", Toast.LENGTH_SHORT).show()
+                        "Error: $it", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -96,5 +96,7 @@ class MainFragment : Fragment() {
     private fun cargarListaPeliculasMain(lista : List<Pelicula>) {
         val adapter = ListadoPeliculasMainAdapter(lista)
         mrviListaPeliculas.adapter = adapter
+        //mostrar el recycler view de manera horizontal
+
     }
 }
