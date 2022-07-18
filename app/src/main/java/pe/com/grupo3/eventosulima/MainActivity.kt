@@ -2,6 +2,11 @@ package pe.com.grupo3.eventosulima
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
+import android.media.ExifInterface
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -30,6 +35,9 @@ class MainActivity : AppCompatActivity() {
     private val fragmentMain = MainFragment()
     private val fragmentNosotros = NosotrosFragment()
     private val fragmentListaEventos = ListaEventosFragment()
+    private var mFotoPath : String? = null
+    private lateinit var iviFoto : ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +55,12 @@ class MainActivity : AppCompatActivity() {
         val sp = getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
         val nameUser = sp.getString(Constantes.USERNAME, "")
         val header : View = mNviMain.getHeaderView(0)
+        iviFoto  = header.findViewById(R.id.iviFotoNav)
         val eteNombre : TextView = header.findViewById(R.id.eteNombre)
         eteNombre.text = nameUser!!.uppercase()
+
+        mFotoPath = sp.getString(Constantes.RUTA_FOTO,"")
+
 
         mNviMain.setNavigationItemSelectedListener {
             it.isChecked = true
@@ -84,9 +96,31 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
 
+        iviFoto.setOnClickListener {
+            val intent = Intent(applicationContext, ConfigActivity::class.java)
+            startActivity(intent)
+        }
 
+        if(mFotoPath == ""){
+
+        }else{
+            mostrarFoto()
+        }
 
         MobileAds.initialize(this) {}
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val sp = getSharedPreferences(Constantes.NOMBRE_SP, Context.MODE_PRIVATE)
+
+        mFotoPath = sp.getString(Constantes.RUTA_FOTO,"")
+
+        if(mFotoPath == ""){
+
+        }else{
+            mostrarFoto()
+        }
     }
 
     private fun mostrarFragmentOtrosEventos(ft: FragmentTransaction) {
@@ -105,6 +139,7 @@ class MainActivity : AppCompatActivity() {
         editor.putString(Constantes.NOMBRES, "")
         editor.putString(Constantes.CODIGO_ULIMA, "")
         editor.putString(Constantes.EDAD, "")
+        editor.putString(Constantes.RUTA_FOTO, "")
         editor.commit()
         finish()
     }
@@ -115,6 +150,70 @@ class MainActivity : AppCompatActivity() {
 
     private fun mostrarFragmentMain(ft: FragmentTransaction) {
         ft.replace(R.id.fcvEleccion, fragmentMain)
+    }
+
+    private fun mostrarFoto() {
+        val matriz = Matrix()
+        val angulo = obtenerAnguloRotacion()
+        matriz.postRotate(angulo)
+
+        val options = BitmapFactory.Options()
+        options.inJustDecodeBounds = true
+        BitmapFactory.decodeFile(mFotoPath!!, options)
+
+        // Cálculo de espacio disponible
+        val iviHeight = iviFoto.height
+        val iviWidth = iviFoto.width
+
+        // Calcular el factor de escalamiento
+        var scaleFactor = 1
+        if(angulo == 90f || angulo == 270f){
+            scaleFactor = Math.min(
+                iviWidth / options.outHeight,
+                iviHeight / options.outWidth
+            )
+        }
+        else{
+            scaleFactor = Math.min(
+                iviWidth / options.outWidth,
+                iviHeight / options.outHeight
+            )
+        }
+
+        options.inJustDecodeBounds = false
+        options.inSampleSize = scaleFactor
+
+        val bitmap : Bitmap = BitmapFactory.decodeFile(mFotoPath!!, options)
+        val bitmapRotated = Bitmap.createBitmap(
+            bitmap,
+            0,
+            0,
+            bitmap.width,
+            bitmap.height,
+            matriz,
+            true)
+        iviFoto.setImageBitmap(bitmapRotated)
+    }
+
+    private fun obtenerAnguloRotacion(): Float {
+        val exifInterface = ExifInterface(mFotoPath!!)
+        val orientation = exifInterface.getAttributeInt(
+            ExifInterface.TAG_ORIENTATION,
+            ExifInterface.ORIENTATION_UNDEFINED
+        )
+
+        if(orientation == ExifInterface.ORIENTATION_ROTATE_90){
+            return 90f
+        }
+        else if (orientation == ExifInterface.ORIENTATION_ROTATE_180){
+            return 180f
+        }
+        else if(orientation == ExifInterface.ORIENTATION_ROTATE_270) {
+            return 270f
+        }
+        else{
+            return 0f
+        }
     }
 
 }

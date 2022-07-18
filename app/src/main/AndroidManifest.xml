@@ -59,6 +59,15 @@
         <activity
             android:name=".ButacasActivity"
             android:exported="true" />
+        <provider
+            android:authorities="pe.com.grupo3.eventosulima.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
     </application>
 
 </manifest>
